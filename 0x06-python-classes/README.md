@@ -2,6 +2,8 @@
 
 Project done during Full Stack Software Engineering studies at ALX SE & Holberton School. It aims to learn about object oriented programming (OOP), classes, objects, instances, methods and attributes in Python.
 
+![OOP](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/247/oop-meme.jpg)
+
 # Requirements
 
 # General
