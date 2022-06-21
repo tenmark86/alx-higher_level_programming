@@ -1,57 +1,58 @@
 #!/usr/bin/python3
-class Node:
-    def __init__(self, data, next_node=None):
-        self.data = data
-        self.next_node = next_node
+"""
+a class Square that defines a square by: 4-square.py
+"""
+
+
+class Square:
+    """
+    Private instance attribute: size
+    property def size(self): to retrieve it
+    property setter def size(self, value): to set it
+    Instantiation with optional size: def __init__(self, size=0):
+    Public instance method: def area(self):
+    that returns the current square area
+    Public instance method: def my_print(self):
+    that prints in stdout the square with the character #:
+    if size is equal to 0, print an empty line
+    """
+
+    def __init__(self, size=0):
+
+        self.__size = size
+
+        if type(self.__size) is not int:
+            raise TypeError('size must be an integer')
+
+        if self.__size < 0:
+            raise ValueError('size must be >= 0')
 
     @property
-    def data(self):
-        return self.__data
+    def size(self):
+        return self.__size
 
-    @data.setter
-    def data(self, value):
-        if not isinstance(value, int):
-            raise TypeError("data must be an integer")
-        self.__data = value
+    @size.setter
+    def size(self, size):
 
-    @property
-    def next_node(self):
-        return self.__next_node
+        self.__size = size
 
-    @next_node.setter
-    def next_node(self, value):
-        if not isinstance(value, Node) and value is not None:
-            raise TypeError("next_node must be a Node object")
-        self.__next_node = value
+        if type(self.__size) is not int:
+            raise TypeError('size must be an integer')
 
+        if self.__size < 0:
+            raise ValueError('size must be >= 0')
 
-class SinglyLinkedList:
-    def __str__(self):
-        rtn = ""
-        ptr = self.__head
+        def area(self):
+            """
+            Returns square area
+            """
+        return self.__size * self.__size
 
-        while ptr is not None:
-            rtn += str(ptr.data)
-            if ptr.next_node is not None:
-                rtn += "\n"
-            ptr = ptr.next_node
-
-        return rtn
-
-    def __init__(self):
-        self.__head = None
-
-    def sorted_insert(self, value):
-        ptr = self.__head
-
-        while ptr is not None:
-            if ptr.data > value:
-                break
-            ptr_prev = ptr
-            ptr = ptr.next_node
-
-        newNode = Node(value, ptr)
-        if ptr == self.__head:
-            self.__head = newNode
+    def my_print(self):
+        if self.__size > 0:
+            for i in range(self.__size):
+                for j in range(self.__size):
+                    print("#", end="")
+                print("")
         else:
-            ptr_prev.next_node = newNode
+            print("")
