@@ -1,6 +1,8 @@
 # Test-driven development
 Project done during Full Stack Software Engineering studies at ALX SE & Holberton School. It aims to learn about docstrings to create and implement tests in Python.
 
+![0x007](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/246/giphy-4.gif)
+
 # Requirements
 
 # Python Scripts
