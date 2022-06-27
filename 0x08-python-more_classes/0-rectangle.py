@@ -1,4 +1,12 @@
 #!/usr/bin/python3
-class Rectangle:
-    """empty Rectangle class"""
-    pass  # An empty block
+"""
+0-rectangle
+an empty class Rectangle that defines a rectangle
+"""
+
+
+class Rectangle():
+    """
+    Empty Class
+    """
+    pass
