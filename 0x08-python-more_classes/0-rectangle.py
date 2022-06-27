@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-class Square:
+class rectangle:
     """empty class"""
     pass  # An empty block
