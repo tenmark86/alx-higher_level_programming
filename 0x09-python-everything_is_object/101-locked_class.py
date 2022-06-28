@@ -1,5 +1,3 @@
-able File  14 lines (10 sloc)  262 Bytes
-
 #!/usr/bin/python3
 """
 Module for a class that prevents dynamic attributes creation
