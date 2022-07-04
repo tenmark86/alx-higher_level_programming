@@ -1,5 +1,4 @@
-!/usr/bin/python3
-# Matias López <3959@holbertonschool.com>
+#!/usr/bin/python3
 """
 Write a class BaseGeometry and add def area,
 def integer_validator where validates value with TypeError
