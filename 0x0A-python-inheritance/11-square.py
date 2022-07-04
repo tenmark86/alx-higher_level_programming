@@ -17,3 +17,7 @@ class Square(Rectangle):
         self.integer_validator("size", size)
         super().__init__(size, size)
         """super sirve para modificar en la clase padre"""
+
+    def __str__(self):
+        """print rectangle width/height"""
+        return '[Square] {:d}/{:d}'.format(self.__size, self.__size)
