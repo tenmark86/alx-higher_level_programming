@@ -1,0 +1,88 @@
+===============================
+The ``7-base_geometry`` module
+===============================
+
+Import class:
+
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+
+-------------------------------
+Rename:
+	>>> bg = BaseGeometry()
+
+
+===============================
+TESTING:
+
+-------------------------------
+Case #0: all ok
+
+	>>> bg.integer_validator("my_int", 12)
+
+Case #1: pass 3 arguments
+
+	>>> bg.integer_validator("my_int", 12, 2)
+	Traceback (most recent call last):
+	TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+Case #2: pass float
+
+	>>> bg.integer_validator("my_int", 12.2)
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
+
+Case #3: negative value
+
+	>>> bg.integer_validator("my_int", -13)
+	Traceback (most recent call last):
+	ValueError: my_int must be greater than 0
+
+
+Case #4: value equal 0
+
+	>>> bg.integer_validator("my_int", 0)
+	Traceback (most recent call last):
+	ValueError: my_int must be greater than 0
+
+Case #5: name is a varible
+
+	>>> bg.integer_validator(my_int, 13)
+	Traceback (most recent call last):
+	NameError: name 'my_int' is not defined
+
+Case #6: name is a int
+
+	>>> bg.integer_validator(15, 13)
+
+Case #7: name is boolean
+
+	>>> bg.integer_validator(True, 13)
+
+Case #8: inverted order
+
+	>>> bg.integer_validator(13, "my_int")
+	Traceback (most recent call last):
+	TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+Case #9: two string
+
+	>>> bg.integer_validator("my_int", "my_int")
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
+
+Case #10: no pass argument
+
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Case #11: pass only name
+
+	>>> bg.integer_validator("my_name")
+	Traceback (most recent call last):
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Case #12: pass [my_list]
+
+	>>> bg.integer_validator(["my", "list"], 13)
