@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-10-student.py
-If attrs is a list of strings, only attribute
-names contained in this list must be retrieved.
+11-student.py
+Public method def reload_from_json(self, json):
+that replaces all attributes of the Student instance
 """
 
 
@@ -28,3 +28,10 @@ class Student:
                     my_dict.update({x: self.__dict__[x]})
             return my_dict
         return self.__dict__.copy()
+
+    def reload_from_json(self, json):
+        """
+        Replaces all attributes of the Student instance.
+        """
+        for x in json:
+            self.__dict__.update({x: json[x]})
