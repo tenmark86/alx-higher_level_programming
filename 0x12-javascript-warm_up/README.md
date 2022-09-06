@@ -1,3 +1,5 @@
+![script](https://cdn.appmaster.io/api/_files/JZhFY63NtSjUjBNyADLGqF/download/)
+
 JavaScript is used for many things. Here, you will use JavaScript for 2 reasons:
 
 * Scripting (same as we did with Python)
