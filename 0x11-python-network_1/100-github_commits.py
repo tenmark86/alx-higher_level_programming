@@ -1,21 +1,14 @@
 #!/usr/bin/python3
 """
-Python script that shows the last 10 commits of a repository
-in GitHub
+list 10 commits (from the most recent to oldest) of the repository and user
+sent in as arguments
 """
-from requests import get, auth
-import sys
-
-
-if __name__ == "__main__":
-    try:
-        repo = sys.argv[1]
-        owner = sys.argv[2]
-        url = 'https://api.github.com/repos/{}/{}/commits'.format(owner, repo)
-        r = get(url)
-        json_o = r.json()
-        for i in range(0, 10):
-            print("{}: {}".format(json_o[i].get('sha'), json_o[i].get('commit')
-                                  .get('author').get('name')))
-    except:
-        pass
+if __name__ == '__main__':
+    import requests
+    from sys import argv
+    r = requests.get('https://api.github.com/repos/{}/{}/commits'
+                     .format(argv[2], argv[1]))
+    commits = r.json()
+    for commit in commits[:10]:
+        print(commit.get('sha'), end=': ')
+        print(commit.get('commit').get('author').get('name'))
