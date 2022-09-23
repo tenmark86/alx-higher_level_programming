@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-"""fetches https://intranet.hbtn.io/status"""
-import urllib.request
+'''task 0 script'''
 
-if __name__ == "__main__":
-    """fetches https://intranet.hbtn.io/status"""
-    with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
-        html = response.read()
-        html_str = html.decode('utf-8')
 
-    print("Body response:")
-    print("\t- type: {}".format(type(html)))
-    print("\t- content: {}".format(html))
-    print("\t- utf8 content: {}".format(html_str))
+if __name__ == '__main__':
+    import urllib.request
+
+    with urllib.request.urlopen('https://intranet.hbtn.io/status') as res:
+        content = res.read()
+        print("Body response:")
+        print("\t- type: {}".format(type(content)))
+        print("\t- content: {}".format(content))
+        print("\t- utf8 content: {}".format(content.decode('utf-8')))
