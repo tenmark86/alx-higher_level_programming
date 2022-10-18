@@ -4,13 +4,11 @@
  * The first argument is the movie ID
  */
 
-const axios = require('axios');
-const url = 'https://swapi-api.hbtn.io/api/films/' + (process.argv[2]);
-
-axios.get(url)
-  .then(function (response) {
-    console.log(response.data.title);
-  })
-  .catch(function (err) {
-    console.log(err.response.status);
-  });
+const request = require('request');
+const id = process.argv[2];
+request('https://swapi-api.hbtn.io/films/' + id + '/', function (error, response, body) {
+  if (error == null) {
+    const json = JSON.parse(body);
+    console.log(json.title);
+  }
+});
