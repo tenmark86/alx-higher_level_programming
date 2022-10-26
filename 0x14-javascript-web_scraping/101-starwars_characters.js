@@ -1,23 +1,32 @@
 #!/usr/bin/node
-/*
- * Write a script that prints all characters of a Star Wars movie:
- * The first argument is the Movie ID - example: 3 = “Return of the Jedi”
- * Display one character name by line
- */
 
-const axios = require('axios');
-const url = ('https://swapi-api.hbtn.io/api/films/');
-const film = process.argv[2];
-
-async function savemovies () {
-  const responses = await axios.get(url + film);
-  const urlName = responses.data.characters;
-  for (let i = 0; i < urlName.length; i++) {
-    const people = urlName[i];
-    await axios.get(people)
-      .then(function (response) {
-        console.log(response.data.name);
-      });
+function order (characters, idx) {
+  if (idx >= characters.length) {
+    return;
   }
+  request(characters[idx], function (err, response, body) {
+    if (err) {
+      console.log(err);
+    } else if (response.statusCode === 200) {
+      const person = JSON.parse(body);
+      console.log(person.name);
+      return order(characters, ++idx);
+    } else {
+      console.log('error ocurred, Status code: ' + response.statusCode);
+    }
+  });
 }
-savemovies();
+
+const request = require('request');
+const url = 'https://swapi-api.hbtn.io/api/films/';
+const ep = process.argv[2];
+request(url + ep, function (err, response, body) {
+  if (err) {
+    console.log(err);
+  } else if (response.statusCode === 200) {
+    const jsobj = JSON.parse(body);
+    order(jsobj.characters, 0);
+  } else {
+    console.log('error ocurred, Status code: ' + response.statusCode);
+  }
+});
